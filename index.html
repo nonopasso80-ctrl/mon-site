@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JC'S BBQ - Le Meillieur du Vrai Barbecue à Lomé</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    git config --global user.name "AWESSO"
+    git config --global user.email "nonopasso80@gmail.com"
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0A0A0A',
+                        brandSurface: '#141414',
+                        brandCard: '#1E1E1E',
+                        brandFlame: '#FF5722',
+                        brandAmber: '#F59E0B',
+                        brandText: '#F3F4F6',
+                        brandMuted: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brandDark text-brandText font-sans selection:bg-brandFlame selection:text-white antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 w-full bg-brandDark/90 backdrop-blur-md border-b border-white/10 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full border-2 border-brandFlame flex items-center justify-center bg-black/50 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid font-bold text-brandFlame text-xl">🔥</i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wider text-white block leading-none">JC'S BBQ</span>
+                    <span class="text-[10px] text-brandAmber tracking-widest uppercase font-semibold">Lomé • Togo</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#accueil" class="hover:text-brandFlame transition-colors">Accueil</a>
+                <a href="#histoire" class="hover:text-brandFlame transition-colors">Notre Histoire</a>
+                <a href="#specialites" class="hover:text-brandFlame transition-colors">Spécialités</a>
+                <a href="#menu" class="hover:text-brandFlame transition-colors">Notre Menu</a>
+                <a href="#galerie" class="hover:text-brandFlame transition-colors">Galerie</a>
+                <a href="#contact" class="hover:text-brandFlame transition-colors">Contact</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-brandSurface hover:bg-brandCard transition-colors border border-white/10">
+                    <i class="fa-solid fa-cart-shopping text-brandAmber"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-brandFlame text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+                <a href="https://wa.me/22898679739" target="_blank" class="px-5 py-2.5 bg-gradient-to-r from-brandFlame to-brandAmber text-white font-bold rounded-lg hover:brightness-110 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brandFlame/20 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Commander</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <div class="flex md:hidden items-center gap-3">
+                <button onclick="toggleCart()" class="relative p-2 rounded-full bg-brandSurface text-brandAmber border border-white/10">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-badge-mobile" class="absolute -top-1 -right-1 bg-brandFlame text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+                <button id="mobile-menu-btn" class="p-2 text-white focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brandSurface border-b border-white/10 px-6 py-6 space-y-4">
+            <a href="#accueil" class="mobile-link block text-lg font-medium hover:text-brandFlame">Accueil</a>
+            <a href="#histoire" class="mobile-link block text-lg font-medium hover:text-brandFlame">Notre Histoire</a>
+            <a href="#specialites" class="mobile-link block text-lg font-medium hover:text-brandFlame">Spécialités</a>
+            <a href="#menu" class="mobile-link block text-lg font-medium hover:text-brandFlame">Notre Menu</a>
+            <a href="#galerie" class="mobile-link block text-lg font-medium hover:text-brandFlame">Galerie</a>
+            <a href="#contact" class="mobile-link block text-lg font-medium hover:text-brandFlame">Contact</a>
+            <a href="https://wa.me/22898679739" target="_blank" class="block w-full py-3 text-center bg-gradient-to-r from-brandFlame to-brandAmber text-white font-bold rounded-lg shadow-lg">
+                <i class="fa-brands fa-whatsapp mr-2"></i> Commander sur WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-brandDark/70 to-black/60 z-10"></div>
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1920&q=80" alt="BBQ Grill Steak" class="absolute inset-0 w-full h-full object-cover transform scale-105 animate-pulse-slow">
+        
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="max-w-2xl space-y-6">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brandFlame/10 border border-brandFlame/30 text-brandFlame text-sm font-semibold tracking-wide">
+                    <span>✨ L'Excellence de la Grillade à Lomé</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-tight">
+                    LE GOÛT AUTHENTIQUE DU <span class="bg-gradient-to-r from-brandFlame to-brandAmber bg-clip-text text-transparent">BARBECUE</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-brandMuted font-light leading-relaxed">
+                    Découvrez l'expérience JC'S BBQ : des grillades savoureuses, des viandes premium et des saveurs inoubliables préparées avec passion sur la braise.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
+                    <a href="#menu" class="px-8 py-4 bg-gradient-to-r from-brandFlame to-brandAmber text-white font-bold rounded-xl hover:shadow-xl hover:shadow-brandFlame/30 transition-all text-center">
+                        Découvrir notre menu
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-brandSurface hover:bg-brandCard border border-white/20 text-white font-semibold rounded-xl transition-all text-center">
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+
+            <!-- Floating Badge Card -->
+            <div class="bg-brandSurface/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl shadow-2xl max-w-sm text-left">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="p-3 bg-brandFlame/20 rounded-xl text-brandFlame">
+                        <i class="fa-solid fa-fire text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white">Viandes Premium & Importations</h4>
+                        <p class="text-xs text-brandMuted">Black Angus & Wagyu Authentiques</p>
+                    </div>
+                </div>
+                <p class="text-sm text-brandMuted leading-relaxed">
+                    Toutes nos pièces de viande sont cuites à la perfection au feu de bois pour une saveur fumée intense.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notre Histoire -->
+    <section id="histoire" class="py-24 bg-brandDark relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Grill Master" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-brandCard border border-brandFlame/30 p-6 rounded-xl hidden sm:block">
+                        <span class="text-3xl font-black text-brandFlame block">100%</span>
+                        <span class="text-xs text-brandMuted uppercase tracking-wider font-semibold">Grillades Braisées</span>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <span class="text-brandFlame font-bold tracking-widest text-sm uppercase">Notre Histoire & Passion</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">La Passion du Vrai Barbecue à Lomé</h2>
+                    <p class="text-brandMuted leading-relaxed">
+                        Chez JC'S BBQ, la grillade est bien plus qu'une méthode de cuisson : c'est un art culinaire dédié aux amoureux de viandes tendres et savoureuses. 
+                    </p>
+                    <p class="text-brandMuted leading-relaxed">
+                        Sélection rigoureuse des pièces de bœuf, d'agneau et de poulet, assaisonnements secrets et maîtrise parfaite de la braise s'unissent pour offrir une expérience gastronomique riche en goût dans une ambiance chaleureuse et conviviale.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-xl bg-brandSurface border border-white/5">
+                            <i class="fa-solid fa-drumstick-bite text-brandFlame text-xl mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Qualité Premium</h4>
+                            <p class="text-xs text-brandMuted">Ingrédients frais et découpes de choix</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brandSurface border border-white/5">
+                            <i class="fa-solid fa-users text-brandAmber text-xl mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Convivialité</h4>
+                            <p class="text-xs text-brandMuted">Cadre idéal pour vos moments partagés</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialites Section -->
+    <section id="specialites" class="py-24 bg-brandSurface border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brandFlame font-bold tracking-widest text-sm uppercase">Incontournables</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2">Nos Spécialités d'Exception</h2>
+                <p class="text-brandMuted mt-4">Découvrez nos pièces signatures cuites à la braise et préparées pour régaler les fins gourmets.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Specialite 1 -->
+                <div class="bg-brandDark rounded-2xl overflow-hidden border border-white/10 group hover:border-brandFlame/50 transition-all">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Côte de Boeuf" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-brandFlame text-white text-xs font-bold px-3 py-1 rounded-full">Signature</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Côtes & Côtelettes d'Agneau</h3>
+                        <p class="text-brandMuted text-sm">Grillées à la perfection, tendres, juteuses et servies avec vos accompagnements préférés.</p>
+                    </div>
+                </div>
+
+                <!-- Specialite 2 -->
+                <div class="bg-brandDark rounded-2xl overflow-hidden border border-white/10 group hover:border-brandFlame/50 transition-all">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80" alt="Black Angus" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-brandAmber text-black text-xs font-bold px-3 py-1 rounded-full">Importation USA</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Black Angus Ribeye & Tomahawk</h3>
+                        <p class="text-brandMuted text-sm">La star du barbecue américain. Persillage exceptionnel et saveur intense garanti.</p>
+                    </div>
+                </div>
+
+                <!-- Specialite 3 -->
+                <div class="bg-brandDark rounded-2xl overflow-hidden border border-white/10 group hover:border-brandFlame/50 transition-all">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?auto=format&fit=crop&w=600&q=80" alt="Wagyu Meat" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full">Prestige</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Wagyu Premium Meat</h3>
+                        <p class="text-brandMuted text-sm">Une viande légendaire à la tendreté inégalée pour une expérience gastronomique ultime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-24 bg-brandDark border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brandFlame font-bold tracking-widest text-sm uppercase">Carte Officielle 2025</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2">Le Menu JC'S BBQ</h2>
+                <p class="text-brandMuted mt-4">Sélectionnez une catégorie ci-dessous pour explorer nos plats et boissons.</p>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12" id="menu-filters">
+                <!-- Filters rendered via JS -->
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="menu-items-grid">
+                <!-- Menu items rendered via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie Section -->
+    <section id="galerie" class="py-24 bg-brandSurface border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brandFlame font-bold tracking-widest text-sm uppercase">Ambiance & Visuels</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Galerie Gastronomique</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="h-64 rounded-xl overflow-hidden border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Grill 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="h-64 rounded-xl overflow-hidden border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Cocktail 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="h-64 rounded-xl overflow-hidden border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Viande 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="h-64 rounded-xl overflow-hidden border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80" alt="Steak 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Commande Section -->
+    <section id="contact" class="py-24 bg-brandDark relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-brandFlame font-bold tracking-widest text-sm uppercase">Contact & Réservations</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Rendez-nous Visite ou Commander</h2>
+                        <p class="text-brandMuted mt-4">Passez votre commande directement sur WhatsApp ou contactez notre équipe pour plus de détails.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-brandSurface border border-white/5">
+                            <div class="p-3 bg-brandFlame/10 rounded-lg text-brandFlame">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Téléphone & WhatsApp</h4>
+                                <a href="tel:+22891475020" class="text-brandMuted hover:text-brandFlame transition-colors">+228 91 47 50 20</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-brandSurface border border-white/5">
+                            <div class="p-3 bg-brandFlame/10 rounded-lg text-brandFlame">
+                                <i class="fa-brands fa-instagram text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Instagram Officiel</h4>
+                                <a href="https://instagram.com/jcs_bbq_lome" target="_blank" class="text-brandMuted hover:text-brandFlame transition-colors">@jcs_bbq_lome</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-brandSurface border border-white/5">
+                            <div class="p-3 bg-brandFlame/10 rounded-lg text-brandFlame">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Localisation</h4>
+                                <p class="text-brandMuted">Lomé, Togo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps Card Simulation -->
+                <div class="bg-brandSurface rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between p-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-4">Notre Emplacement à Lomé</h3>
+                        <div class="w-full h-64 rounded-xl bg-brandDark flex items-center justify-center border border-white/5 relative overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63480.83736561244!2d1.173872!3d6.1725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1021591f4a56ff95%3A0x6b446a868427e574!2sLom%C3%A9%2C%20Togo!5e0!3m2!1sfr!2s!4v1700000000000!5m2!1sfr!2s" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://wa.me/22891475020" target="_blank" class="w-full py-4 bg-gradient-to-r from-brandFlame to-brandAmber text-white font-bold rounded-xl flex items-center justify-center gap-3 shadow-lg hover:brightness-110 transition-all">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Commander directement sur WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl font-black text-white">JC'S BBQ</span>
+                <span class="text-brandMuted text-sm">| Grill House Lomé</span>
+            </div>
+            
+            <p class="text-xs text-brandMuted text-center">
+                &copy; 2025 JC'S BBQ Lomé, Togo. Tous droits réservés.
+            </p>
+
+            <div class="flex items-center gap-4 text-brandMuted">
+                <a href="https://instagram.com/jcs_bbq_lome" target="_blank" class="hover:text-brandFlame transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="https://wa.me/22891475020" target="_blank" class="hover:text-brandFlame transition-colors"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/22891475020" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform z-40 border-2 border-white/20">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Cart Drawer Modal -->
+    <div id="cart-drawer" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex justify-end hidden">
+        <div class="w-full max-w-md bg-brandSurface h-full p-6 flex flex-col justify-between border-l border-white/10">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping text-brandFlame"></i> Votre Panier
+                    </h3>
+                    <button onclick="toggleCart()" class="text-brandMuted hover:text-white">
+                        <i class="fa-solid fa-xmark text-2xl"></i>
+                    </button>
+                </div>
+
+                <div id="cart-items-container" class="py-6 space-y-4 max-h-[60vh] overflow-y-auto">
+                    <!-- Cart items rendered dynamically -->
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-6 space-y-4">
+                <div class="flex items-center justify-between text-lg font-bold">
+                    <span class="text-white">Total</span>
+                    <span id="cart-total" class="text-brandFlame">0 FCFA</span>
+                </div>
+                <button onclick="checkoutWhatsApp()" class="w-full py-4 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg transition-all">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Envoyer la commande sur WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
